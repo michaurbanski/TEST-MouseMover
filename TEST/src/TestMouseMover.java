@@ -7,13 +7,38 @@ import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 
+
+class killer implements Runnable {
+	int petla;
+	
+	public void run () {
+		
+		
+//		Thread fred = new Thread();
+//		fred.setPriority(5);
+//		for (petla=0; petla<=8; petla++) {
+//		System.out.println("Pętla " + petla);
+//		try {
+//			Thread.sleep(1200);
+//		} catch (InterruptedException e) {
+//			System.out.println("Jakiś błąd z waitem.");
+//			e.printStackTrace();
+//		}
+//		}
+		
+	}
+		
+}
+
 class TestMouseMover {
+	
 	
 	static double x,y;
 	static int delay = 1;
 	static int LiniaX = 1710;	
 	static int LiniaY = 1060;
 	static Robot robot;
+	
 	
 	protected static void clicker() {
 		robot.mouseMove(LiniaX, LiniaY);
@@ -58,12 +83,19 @@ class TestMouseMover {
 	
 	public static void main(String[] args) throws AWTException, IOException {
 		
+//		killer DrukPetli = new killer();
+//		Thread tred = new Thread(DrukPetli);
+//		tred.start(); ale MOŻNA TO NAPISAĆ JAK NA DOLE (JAKO ARGUMENT TWORZYSZ NOWĄ INSTANCJE KLASY)
+		
+		Thread T = new Thread (new killer());
+		T.start();
+		
 		robot = new Robot();
 		
 		MPositioner();
 		TestMouseMover.clicker();
 		System.out.println("Done. Now comes the for loop.");
-		for(int i=0;i<8;i++) {
+		for(int i=0;i<5;i++) {
 			mover();
 		}
 		robot.keyPress(KeyEvent.VK_ESCAPE);
@@ -73,8 +105,8 @@ class TestMouseMover {
 		robot.delay(500);
 		robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
 		robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-		for(int i=0;i<10;i++) {
-			mover();
+		for(int i=0;i<5;i++) {
+//			mover();
 		}
 		
 		robot.keyPress(KeyEvent.VK_ESCAPE);
@@ -83,8 +115,8 @@ class TestMouseMover {
 		robot.delay(500);
 		robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
 		robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-		for(int i=0;i<10;i++) {
-			mover();
+		for(int i=0;i<5;i++) {
+//			mover();
 		}
 		
 		robot.keyPress(KeyEvent.VK_ESCAPE);
