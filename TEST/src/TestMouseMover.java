@@ -45,16 +45,7 @@ class TestMouseMover {
 		robot.delay(500);
 		robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
 		robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-//		robot.delay(1000);
-//		robot.mouseMove(1750, 970);
-//		robot.delay(1000);
-//		robot.mouseMove(1700, 970);
-//		robot.delay(1000);
-//		robot.mouseMove(1700, 890);
-//		robot.delay(1000);
-//		robot.mouseMove(1750, 890);
-//		robot.delay(1000);
-//		robot.mouseMove(1750, 970);
+	robot.mouseMove(1750, 970);
 	}
 	protected static void mover() {
 		for (LiniaX=1750;LiniaX>=1650;LiniaX--){
